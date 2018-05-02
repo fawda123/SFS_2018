@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.1.28)  2 MAY 2018 11:43
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.1.28)  2 MAY 2018 15:06
 entering extended mode
 **./Becketal_SFS18.tex
 (Becketal_SFS18.tex
@@ -1379,7 +1379,7 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 120.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<fig/back_tmp.pdf, id=42, pagebox=cropbox, 505.89pt x 505.89pt>
+<fig/back_tmp.pdf, id=46, pagebox=cropbox, 505.89pt x 505.89pt>
 File: fig/back_tmp.pdf Graphic file (type pdf)
 <use fig/back_tmp.pdf>
 Package pdftex.def Info: fig/back_tmp.pdf  used on input line 120. on input lin
@@ -1390,7 +1390,7 @@ e 120.
 
 {C:/Users/Marcus.SCCWRP2K/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <.
 /fig/back_tmp.pdf>]
-<fig/sccwrp_logo.png, id=59, 394.47375pt x 271.0125pt>
+<fig/sccwrp_logo.png, id=63, 394.47375pt x 271.0125pt>
 File: fig/sccwrp_logo.png Graphic file (type png)
 <use fig/sccwrp_logo.png>
 Package pdftex.def Info: fig/sccwrp_logo.png  used on input line 127. on input 
@@ -1408,39 +1408,342 @@ e 127.
  <./fig/sccwrp_logo.png>]
 File: fig/sccwrp_logo.png Graphic file (type png)
 <use fig/sccwrp_logo.png>
-Package pdftex.def Info: fig/sccwrp_logo.png  used on input line 159. on input 
-line 159.
+Package pdftex.def Info: fig/sccwrp_logo.png  used on input line 132. on input 
+line 132.
+Package pdftex.def Info: Requested size: 25.49634pt x 17.51305pt on input line 
+132.
+File: fig/back_tmp.pdf Graphic file (type pdf)
+<use fig/back_tmp.pdf>
+Package pdftex.def Info: fig/back_tmp.pdf  used on input line 132. on input lin
+e 132.
+Package pdftex.def Info: Requested size: 364.20192pt x 273.15337pt on input lin
+e 132.
+ [3
+
+]
+File: fig/sccwrp_logo.png Graphic file (type png)
+<use fig/sccwrp_logo.png>
+Package pdftex.def Info: fig/sccwrp_logo.png  used on input line 138. on input 
+line 138.
+Package pdftex.def Info: Requested size: 25.49634pt x 17.51305pt on input line 
+138.
+File: fig/back_tmp.pdf Graphic file (type pdf)
+<use fig/back_tmp.pdf>
+Package pdftex.def Info: fig/back_tmp.pdf  used on input line 138. on input lin
+e 138.
+Package pdftex.def Info: Requested size: 364.20192pt x 273.15337pt on input lin
+e 138.
+ [4
+
+]
+<fig/unnamed-chunk-3-1.pdf, id=84, pagebox=cropbox, 433.62pt x 505.89pt>
+File: fig/unnamed-chunk-3-1.pdf Graphic file (type pdf)
+<use fig/unnamed-chunk-3-1.pdf>
+Package pdftex.def Info: fig/unnamed-chunk-3-1.pdf  used on input line 170. on 
+input line 170.
+Package pdftex.def Info: Requested size: 171.14764pt x 199.67383pt on input lin
+e 170.
+<fig/unnamed-chunk-4-1.pdf, id=85, pagebox=cropbox, 433.62pt x 505.89pt>
+File: fig/unnamed-chunk-4-1.pdf Graphic file (type pdf)
+<use fig/unnamed-chunk-4-1.pdf>
+Package pdftex.def Info: fig/unnamed-chunk-4-1.pdf  used on input line 170. on 
+input line 170.
+Package pdftex.def Info: Requested size: 171.14764pt x 199.67383pt on input lin
+e 170.
+File: fig/sccwrp_logo.png Graphic file (type png)
+<use fig/sccwrp_logo.png>
+Package pdftex.def Info: fig/sccwrp_logo.png  used on input line 170. on input 
+line 170.
+Package pdftex.def Info: Requested size: 25.49634pt x 17.51305pt on input line 
+170.
+File: fig/back_tmp.pdf Graphic file (type pdf)
+<use fig/back_tmp.pdf>
+Package pdftex.def Info: fig/back_tmp.pdf  used on input line 170. on input lin
+e 170.
+Package pdftex.def Info: Requested size: 364.20192pt x 273.15337pt on input lin
+e 170.
+ [5
+
+ <./fig/unnamed-chunk-3-1.pdf> <./fig/unnamed-chunk-4-1.pdf>]
+<fig/schem.png, id=111, 589.2414pt x 405.6756pt>
+File: fig/schem.png Graphic file (type png)
+<use fig/schem.png>
+Package pdftex.def Info: fig/schem.png  used on input line 182. on input line 1
+82.
+Package pdftex.def Info: Requested size: 325.17949pt x 223.88365pt on input lin
+e 182.
+File: fig/sccwrp_logo.png Graphic file (type png)
+<use fig/sccwrp_logo.png>
+Package pdftex.def Info: fig/sccwrp_logo.png  used on input line 182. on input 
+line 182.
+Package pdftex.def Info: Requested size: 25.49634pt x 17.51305pt on input line 
+182.
+
+Overfull \vbox (8.54218pt too high) detected at line 182
+ []
+
+File: fig/back_tmp.pdf Graphic file (type pdf)
+<use fig/back_tmp.pdf>
+Package pdftex.def Info: fig/back_tmp.pdf  used on input line 182. on input lin
+e 182.
+Package pdftex.def Info: Requested size: 364.20192pt x 273.15337pt on input lin
+e 182.
+[6
+
+ <./fig/schem.png>]
+<fig/schem1.png, id=119, 590.205pt x 406.6392pt>
+File: fig/schem1.png Graphic file (type png)
+<use fig/schem1.png>
+Package pdftex.def Info: fig/schem1.png  used on input line 182. on input line 
+182.
+Package pdftex.def Info: Requested size: 325.17949pt x 224.04315pt on input lin
+e 182.
+File: fig/sccwrp_logo.png Graphic file (type png)
+<use fig/sccwrp_logo.png>
+Package pdftex.def Info: fig/sccwrp_logo.png  used on input line 182. on input 
+line 182.
+Package pdftex.def Info: Requested size: 25.49634pt x 17.51305pt on input line 
+182.
+
+Overfull \vbox (8.70168pt too high) detected at line 182
+ []
+
+File: fig/back_tmp.pdf Graphic file (type pdf)
+<use fig/back_tmp.pdf>
+Package pdftex.def Info: fig/back_tmp.pdf  used on input line 182. on input lin
+e 182.
+Package pdftex.def Info: Requested size: 364.20192pt x 273.15337pt on input lin
+e 182.
+[7
+
+ <./fig/schem1.png>]
+<fig/schem2.png, id=128, 589.2414pt x 407.6028pt>
+File: fig/schem2.png Graphic file (type png)
+<use fig/schem2.png>
+Package pdftex.def Info: fig/schem2.png  used on input line 182. on input line 
+182.
+Package pdftex.def Info: Requested size: 325.17949pt x 224.94722pt on input lin
+e 182.
+File: fig/sccwrp_logo.png Graphic file (type png)
+<use fig/sccwrp_logo.png>
+Package pdftex.def Info: fig/sccwrp_logo.png  used on input line 182. on input 
+line 182.
+Package pdftex.def Info: Requested size: 25.49634pt x 17.51305pt on input line 
+182.
+
+Overfull \vbox (9.60574pt too high) detected at line 182
+ []
+
+File: fig/back_tmp.pdf Graphic file (type pdf)
+<use fig/back_tmp.pdf>
+Package pdftex.def Info: fig/back_tmp.pdf  used on input line 182. on input lin
+e 182.
+Package pdftex.def Info: Requested size: 364.20192pt x 273.15337pt on input lin
+e 182.
+[8
+
+ <./fig/schem2.png>]
+<fig/schem3.png, id=136, 590.205pt x 407.6028pt>
+File: fig/schem3.png Graphic file (type png)
+<use fig/schem3.png>
+Package pdftex.def Info: fig/schem3.png  used on input line 182. on input line 
+182.
+Package pdftex.def Info: Requested size: 325.17949pt x 224.57405pt on input lin
+e 182.
+File: fig/sccwrp_logo.png Graphic file (type png)
+<use fig/sccwrp_logo.png>
+Package pdftex.def Info: fig/sccwrp_logo.png  used on input line 182. on input 
+line 182.
+Package pdftex.def Info: Requested size: 25.49634pt x 17.51305pt on input line 
+182.
+
+Overfull \vbox (9.23257pt too high) detected at line 182
+ []
+
+File: fig/back_tmp.pdf Graphic file (type pdf)
+<use fig/back_tmp.pdf>
+Package pdftex.def Info: fig/back_tmp.pdf  used on input line 182. on input lin
+e 182.
+Package pdftex.def Info: Requested size: 364.20192pt x 273.15337pt on input lin
+e 182.
+[9
+
+ <./fig/schem3.png>]
+<fig/schem4.png, id=144, 590.205pt x 406.6392pt>
+File: fig/schem4.png Graphic file (type png)
+<use fig/schem4.png>
+Package pdftex.def Info: fig/schem4.png  used on input line 182. on input line 
+182.
+Package pdftex.def Info: Requested size: 325.17949pt x 224.04315pt on input lin
+e 182.
+File: fig/sccwrp_logo.png Graphic file (type png)
+<use fig/sccwrp_logo.png>
+Package pdftex.def Info: fig/sccwrp_logo.png  used on input line 182. on input 
+line 182.
+Package pdftex.def Info: Requested size: 25.49634pt x 17.51305pt on input line 
+182.
+
+Overfull \vbox (8.70168pt too high) detected at line 182
+ []
+
+File: fig/back_tmp.pdf Graphic file (type pdf)
+<use fig/back_tmp.pdf>
+Package pdftex.def Info: fig/back_tmp.pdf  used on input line 182. on input lin
+e 182.
+Package pdftex.def Info: Requested size: 364.20192pt x 273.15337pt on input lin
+e 182.
+[10
+
+ <./fig/schem4.png>]
+File: fig/sccwrp_logo.png Graphic file (type png)
+<use fig/sccwrp_logo.png>
+Package pdftex.def Info: fig/sccwrp_logo.png  used on input line 187. on input 
+line 187.
+Package pdftex.def Info: Requested size: 25.49634pt x 17.51305pt on input line 
+187.
+File: fig/back_tmp.pdf Graphic file (type pdf)
+<use fig/back_tmp.pdf>
+Package pdftex.def Info: fig/back_tmp.pdf  used on input line 187. on input lin
+e 187.
+Package pdftex.def Info: Requested size: 364.20192pt x 273.15337pt on input lin
+e 187.
+ [11
+
+]
+File: fig/sccwrp_logo.png Graphic file (type png)
+<use fig/sccwrp_logo.png>
+Package pdftex.def Info: fig/sccwrp_logo.png  used on input line 192. on input 
+line 192.
+Package pdftex.def Info: Requested size: 25.49634pt x 17.51305pt on input line 
+192.
+File: fig/back_tmp.pdf Graphic file (type pdf)
+<use fig/back_tmp.pdf>
+Package pdftex.def Info: fig/back_tmp.pdf  used on input line 192. on input lin
+e 192.
+Package pdftex.def Info: Requested size: 364.20192pt x 273.15337pt on input lin
+e 192.
+ [12
+
+]
+File: fig/sccwrp_logo.png Graphic file (type png)
+<use fig/sccwrp_logo.png>
+Package pdftex.def Info: fig/sccwrp_logo.png  used on input line 197. on input 
+line 197.
+Package pdftex.def Info: Requested size: 25.49634pt x 17.51305pt on input line 
+197.
+File: fig/back_tmp.pdf Graphic file (type pdf)
+<use fig/back_tmp.pdf>
+Package pdftex.def Info: fig/back_tmp.pdf  used on input line 197. on input lin
+e 197.
+Package pdftex.def Info: Requested size: 364.20192pt x 273.15337pt on input lin
+e 197.
+ [13
+
+]
+File: fig/sccwrp_logo.png Graphic file (type png)
+<use fig/sccwrp_logo.png>
+Package pdftex.def Info: fig/sccwrp_logo.png  used on input line 202. on input 
+line 202.
+Package pdftex.def Info: Requested size: 25.49634pt x 17.51305pt on input line 
+202.
+File: fig/back_tmp.pdf Graphic file (type pdf)
+<use fig/back_tmp.pdf>
+Package pdftex.def Info: fig/back_tmp.pdf  used on input line 202. on input lin
+e 202.
+Package pdftex.def Info: Requested size: 364.20192pt x 273.15337pt on input lin
+e 202.
+ [14
+
+]
+File: fig/sccwrp_logo.png Graphic file (type png)
+<use fig/sccwrp_logo.png>
+Package pdftex.def Info: fig/sccwrp_logo.png  used on input line 207. on input 
+line 207.
+Package pdftex.def Info: Requested size: 25.49634pt x 17.51305pt on input line 
+207.
+File: fig/back_tmp.pdf Graphic file (type pdf)
+<use fig/back_tmp.pdf>
+Package pdftex.def Info: fig/back_tmp.pdf  used on input line 207. on input lin
+e 207.
+Package pdftex.def Info: Requested size: 364.20192pt x 273.15337pt on input lin
+e 207.
+ [15
+
+]
+File: fig/sccwrp_logo.png Graphic file (type png)
+<use fig/sccwrp_logo.png>
+Package pdftex.def Info: fig/sccwrp_logo.png  used on input line 212. on input 
+line 212.
+Package pdftex.def Info: Requested size: 25.49634pt x 17.51305pt on input line 
+212.
+File: fig/back_tmp.pdf Graphic file (type pdf)
+<use fig/back_tmp.pdf>
+Package pdftex.def Info: fig/back_tmp.pdf  used on input line 212. on input lin
+e 212.
+Package pdftex.def Info: Requested size: 364.20192pt x 273.15337pt on input lin
+e 212.
+ [16
+
+]
+File: fig/sccwrp_logo.png Graphic file (type png)
+<use fig/sccwrp_logo.png>
+Package pdftex.def Info: fig/sccwrp_logo.png  used on input line 217. on input 
+line 217.
+Package pdftex.def Info: Requested size: 25.49634pt x 17.51305pt on input line 
+217.
+File: fig/back_tmp.pdf Graphic file (type pdf)
+<use fig/back_tmp.pdf>
+Package pdftex.def Info: fig/back_tmp.pdf  used on input line 217. on input lin
+e 217.
+Package pdftex.def Info: Requested size: 364.20192pt x 273.15337pt on input lin
+e 217.
+ [17
+
+]
+File: fig/sccwrp_logo.png Graphic file (type png)
+<use fig/sccwrp_logo.png>
+Package pdftex.def Info: fig/sccwrp_logo.png  used on input line 249. on input 
+line 249.
 Package pdftex.def Info: Requested size: 102.68962pt x 70.54842pt on input line
- 159.
-<fig/git.png, id=69, 352.40228pt x 352.40228pt>
+ 249.
+<fig/git.png, id=196, 352.40228pt x 352.40228pt>
 File: fig/git.png Graphic file (type png)
 <use fig/git.png>
-Package pdftex.def Info: fig/git.png  used on input line 159. on input line 159
+Package pdftex.def Info: fig/git.png  used on input line 249. on input line 249
 .
-Package pdftex.def Info: Requested size: 8.55789pt x 8.55515pt on input line 15
+Package pdftex.def Info: Requested size: 8.55789pt x 8.55515pt on input line 24
 9.
 File: fig/git.png Graphic file (type png)
 <use fig/git.png>
-Package pdftex.def Info: fig/git.png  used on input line 159. on input line 159
+Package pdftex.def Info: fig/git.png  used on input line 249. on input line 249
 .
-Package pdftex.def Info: Requested size: 8.55789pt x 8.55515pt on input line 15
+Package pdftex.def Info: Requested size: 8.55789pt x 8.55515pt on input line 24
 9.
-<fig/twitter.png, id=72, 1263.72125pt x 1027.84pt>
+<fig/twitter.png, id=199, 1263.72125pt x 1027.84pt>
 File: fig/twitter.png Graphic file (type png)
 <use fig/twitter.png>
-Package pdftex.def Info: fig/twitter.png  used on input line 159. on input line
- 159.
-Package pdftex.def Info: Requested size: 8.55789pt x 6.94781pt on input line 15
+Package pdftex.def Info: fig/twitter.png  used on input line 249. on input line
+ 249.
+Package pdftex.def Info: Requested size: 8.55789pt x 6.94781pt on input line 24
 9.
 File: fig/back_tmp.pdf Graphic file (type pdf)
 <use fig/back_tmp.pdf>
-Package pdftex.def Info: fig/back_tmp.pdf  used on input line 159. on input lin
-e 159.
+Package pdftex.def Info: fig/back_tmp.pdf  used on input line 249. on input lin
+e 249.
 Package pdftex.def Info: Requested size: 364.20192pt x 273.15337pt on input lin
-e 159.
- [3
+e 249.
+ [18
 
- <./fig/git.png> <./fig/twitter.png>]
+ <./fig/git.png> <./fig/twitter.png>] (Becketal_SFS18.bbl)
+File: fig/back_tmp.pdf Graphic file (type pdf)
+<use fig/back_tmp.pdf>
+Package pdftex.def Info: fig/back_tmp.pdf  used on input line 258. on input lin
+e 258.
+Package pdftex.def Info: Requested size: 364.20192pt x 273.15337pt on input lin
+e 258.
+ [19
+
+]
 \tf@nav=\write6
 \openout6 = `Becketal_SFS18.nav'.
 
@@ -1450,21 +1753,20 @@ e 159.
 \tf@snm=\write8
 \openout8 = `Becketal_SFS18.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 170.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 170.
-
-(Becketal_SFS18.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 170.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 170.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 260.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 260.
+ (Becketal_SFS18.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 260.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 260.
 Package rerunfilecheck Info: File `Becketal_SFS18.out' has not changed.
-(rerunfilecheck)             Checksum: FFD48919B27C9BD0CB59D6B7B11BA98B;46.
+(rerunfilecheck)             Checksum: 5276EC5092E9C422876015BE063573A5;92.
  ) 
 Here is how much of TeX's memory you used:
- 33328 strings out of 493312
- 684651 string characters out of 3138869
- 771738 words of memory out of 3000000
- 36278 multiletter control sequences out of 15000+200000
- 539718 words of font info for 59 fonts, out of 3000000 for 9000
+ 33485 strings out of 493312
+ 687805 string characters out of 3138869
+ 771926 words of memory out of 3000000
+ 36388 multiletter control sequences out of 15000+200000
+ 540064 words of font info for 60 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  53i,19n,92p,10417b,627s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Pr
@@ -1473,10 +1775,11 @@ Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiK
 TeX 2.9/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Program Files/MiKTeX 2.9/fo
 nts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
 public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
-fonts/cm/cmr9.pfb>
-Output written on Becketal_SFS18.pdf (3 pages, 331642 bytes).
+fonts/cm/cmr9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
+mti10.pfb>
+Output written on Becketal_SFS18.pdf (19 pages, 1021044 bytes).
 PDF statistics:
- 109 PDF objects out of 1000 (max. 8388607)
- 8 named destinations out of 1000 (max. 500000)
- 167 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 255 PDF objects out of 1000 (max. 8388607)
+ 44 named destinations out of 1000 (max. 500000)
+ 210 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -53,14 +53,47 @@ options(replace.assign = T, width = 90)
 
 % dependent data
 <<dep_dat, include = F, cache = F>>=
-NULL
+# libraries
+library(tidyverse)
+library(sf)
+library(proj4shortcut)
+library(gridExtra)
+library(MuMIn)
+library(mgcv)
+library(vegan)
+library(caret)
+library(ggord)
+
+# funcs
+source('R/funcs.R')
+
+# proj global
+prj <- geo_wgs84
+
+# data
+# data(nladat07)
+# data(nladat12)
+data(lkct_ca)
+data(nlaca)
+data(envdat)
+# data(calipsa)
+
+lkct <- lkct_ca %>% 
+  st_centroid %>% 
+  st_transform(prj) %>% 
+  st_coordinates %>% 
+  data.frame %>% 
+  rename(
+    lon = X, 
+    lat = Y
+  )
 @
 
 % get online bib file
 <<echo = FALSE, cache = FALSE>>=
-refs <- httr::GET('https://raw.githubusercontent.com/fawda123/refs/master/refs.bib')
-refs <- rawToChar(refs$content)
-writeLines(refs, con = file('refs.bib'))
+# refs <- httr::GET('https://raw.githubusercontent.com/fawda123/refs/master/refs.bib')
+# refs <- rawToChar(refs$content)
+# writeLines(refs, con = file('refs.bib'))
 @
 
 % title fig
@@ -103,7 +136,91 @@ writeLines(refs, con = file('refs.bib'))
 
 %%%%%%
 \begin{frame}{{$\vcenter{\hbox{\includegraphics[width=0.07\paperwidth]{fig/sccwrp_logo.png}}}$\hspace{0.07in}\textbf{Bioassessment in California}}}
+Streams, endpoints and objectives
+\end{frame}
 
+%%%%%%
+\begin{frame}{{$\vcenter{\hbox{\includegraphics[width=0.07\paperwidth]{fig/sccwrp_logo.png}}}$\hspace{0.07in}\textbf{California lakes}}}
+Types, distribution, reservoirs
+\end{frame}
+
+%%%%%%
+\begin{frame}{{$\vcenter{\hbox{\includegraphics[width=0.07\paperwidth]{fig/sccwrp_logo.png}}}$\hspace{0.07in}\textbf{California lakes}}}
+Cyanohabs as endpoint to meet objectives for drinking water, recreation
+Goal: evaluate the relative risk of lakes in California that are at risk of exceeding a eutrophication endpoint that is related to bloom occurrence
+\end{frame}
+
+%%%%%%
+\begin{frame}[t]{{$\vcenter{\hbox{\includegraphics[width=0.07\paperwidth]{fig/sccwrp_logo.png}}}$\hspace{0.07in}\textbf{Data and approach}}}
+Limited \textit{in situ} data for California, tons of watershed data
+\vspace{-0.1in}
+\begin{columns}[t]
+\begin{column}{0.5\textwidth}
+<<fig.width = 6>>=
+maps::map('county', region = 'california')
+title(paste('NLA07, NLA12:', nrow(nlaca), 'lakes'), cex.main = 2)
+points(nlaca$lon, nlaca$lat, col = scales::alpha('blue', 0.6), pch = 16)
+@
+\end{column}
+\begin{column}{0.5\textwidth}
+<<fig.width = 6>>=
+maps::map('county', region = 'california')
+title(paste('LakeCat:', nrow(lkct), 'lakes'), cex.main = 2)
+points(lkct$lon, lkct$lat, col = scales::alpha('blue', 0.6), pch = 16)
+@
+\end{column}
+\end{columns}
+\vspace{-0.25in}
+{\tiny
+\cite{USEPA09,USEPA17,Hill18}
+}
+\end{frame}
+
+%%%%%%
+\begin{frame}{{$\vcenter{\hbox{\includegraphics[width=0.07\paperwidth]{fig/sccwrp_logo.png}}}$\hspace{0.07in}\textbf{Modelling approach}}}
+\begin{overprint}
+\centering
+\includegraphics<1>[width = 0.95\textwidth]{fig/schem.png}
+\includegraphics<2>[width = 0.95\textwidth]{fig/schem1.png}
+\includegraphics<3>[width = 0.95\textwidth]{fig/schem2.png}
+\includegraphics<4>[width = 0.95\textwidth]{fig/schem3.png}
+\includegraphics<5>[width = 0.95\textwidth]{fig/schem4.png}
+\end{overprint}
+\end{frame}
+
+%%%%%%
+\begin{frame}{{$\vcenter{\hbox{\includegraphics[width=0.07\paperwidth]{fig/sccwrp_logo.png}}}$\hspace{0.07in}\textbf{Data and approach}}}
+
+\end{frame}
+
+%%%%%%
+\begin{frame}{{$\vcenter{\hbox{\includegraphics[width=0.07\paperwidth]{fig/sccwrp_logo.png}}}$\hspace{0.07in}\textbf{Data and approach}}}
+
+\end{frame}
+
+%%%%%%
+\begin{frame}{{$\vcenter{\hbox{\includegraphics[width=0.07\paperwidth]{fig/sccwrp_logo.png}}}$\hspace{0.07in}\textbf{Results}}}
+
+\end{frame}
+
+%%%%%%
+\begin{frame}{{$\vcenter{\hbox{\includegraphics[width=0.07\paperwidth]{fig/sccwrp_logo.png}}}$\hspace{0.07in}\textbf{Results}}}
+
+\end{frame}
+
+%%%%%%
+\begin{frame}{{$\vcenter{\hbox{\includegraphics[width=0.07\paperwidth]{fig/sccwrp_logo.png}}}$\hspace{0.07in}\textbf{Results}}}
+
+\end{frame}
+
+%%%%%%
+\begin{frame}{{$\vcenter{\hbox{\includegraphics[width=0.07\paperwidth]{fig/sccwrp_logo.png}}}$\hspace{0.07in}\textbf{Issues and future work}}}
+Assumptions and limitations
+\end{frame}
+
+%%%%%%
+\begin{frame}{{$\vcenter{\hbox{\includegraphics[width=0.07\paperwidth]{fig/sccwrp_logo.png}}}$\hspace{0.07in}\textbf{Issues and future work}}}
+Alternative data acquisition
 \end{frame}
 
 %%%%%%
@@ -139,12 +256,12 @@ Ryan Hill (USEPA, ORISE) for LakeCat data\\~\\}
 \end{frame}
 
 %%%%%%
-% \section{References}
-% \begin{frame}[t,shrink]{\textbf{References}}
-% \tiny
-% \setbeamertemplate{bibliography item}{}
-% \bibliographystyle{apalike_mine}
-% \bibliography{refs}
-% \end{frame}
+\section{References}
+\begin{frame}[t,shrink]{\textbf{References}}
+\tiny
+\setbeamertemplate{bibliography item}{}
+\bibliographystyle{apalike_mine}
+\bibliography{refs}
+\end{frame}
 
 \end{document}

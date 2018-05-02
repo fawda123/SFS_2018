@@ -1,0 +1,20 @@
+ \newcommand{\noop}[1]{}
+\begin{thebibliography}{}
+
+\bibitem[Hill et~al., 2018]{Hill18}
+Hill RA, Weber MH, Debbout R, Leibowitz SG, Olsen AR. 2018.
+\newblock The {Lake-Catchment (LakeCat)} dataset: Characterizing landscape
+  features for lake basins within teh conterminous {USA}.
+\newblock Freshwater Science, pages 1--14.
+
+\bibitem[{USEPA (US Environmental Protection Agency)}, 2009]{USEPA09}
+{USEPA (US Environmental Protection Agency)}. 2009.
+\newblock {N}ational {L}akes {A}ssessment 2007: a collaborative survey.
+\newblock Technical Report EPA-841-R-09-001, Washington, DC.
+
+\bibitem[{USEPA (US Environmental Protection Agency)}, 2017]{USEPA17}
+{USEPA (US Environmental Protection Agency)}. 2017.
+\newblock {N}ational {L}akes {A}ssessment 2012: technical report.
+\newblock Technical Report EPA-841-R-16-114, Washington, DC.
+
+\end{thebibliography}
