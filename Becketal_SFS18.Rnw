@@ -1,0 +1,150 @@
+\documentclass[serif]{beamer}
+\usetheme{Boadilla}
+\usepackage{graphicx}
+\usepackage[final]{animate}
+\usepackage{breqn}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{shapes,arrows,positioning,shadows}
+\usepackage{pgf}
+\usepackage{caption}
+
+% change format of enumerated lists
+\setbeamertemplate{enumerate items}[default]
+\setbeamertemplate{navigation symbols}{}
+
+% macros
+\newcommand{\emtxt}[1]{\textbf{\textit{{\color{mypal4} #1}}}}
+\definecolor{mycol1}{rgb}{0.65,0.8,0.89}
+\definecolor{mycol2}{rgb}{0.98,0.6,0.6}
+
+% change font size for figure captions
+\setbeamerfont{caption}{size=\scriptsize}
+
+% custom colors
+<<mypal, echo = F, results = 'asis', cache = T>>=
+pal <- function(x) RColorBrewer::brewer.pal(x, 'GnBu')
+num_col <- 5
+
+for(i in 1:num_col){
+ 
+  col.nm <- paste0('mypal',i)
+  hexa <- paste0(gsub('#', '', pal(5)[i]))
+  cat(paste0('\\definecolor{', col.nm,'}{HTML}{',hexa,'}'))
+  
+}
+
+bg_col <- pal(num_col)[1]
+
+pdf('fig/back_tmp.pdf',bg = bg_col)
+frame()
+invisible(dev.off())
+@
+
+% knitr setup
+<<setup, include = F, cache = F>>=
+# set global chunk options
+library(knitr)
+opts_chunk$set(fig.path='fig/', fig.align = 'center', fig.show = 'hold', message = F, echo = F, results = 'asis', dev = 'pdf', dev.args = list(family = 'serif', bg = 'transparent'), fig.pos = '!ht', warning = F)
+options(replace.assign = T, width = 90)
+@
+
+% dependent data
+<<dep_dat, include = F, cache = F>>=
+NULL
+@
+
+% get online bib file
+<<echo = FALSE, cache = FALSE>>=
+refs <- httr::GET('https://raw.githubusercontent.com/fawda123/refs/master/refs.bib')
+refs <- rawToChar(refs$content)
+writeLines(refs, con = file('refs.bib'))
+@
+
+% title fig
+<<results = 'hide', cache = T>>=
+
+@
+
+\setbeamercolor{title}{fg=mypal5} % main title
+\setbeamercolor{frametitle}{fg=mypal4, bg=mypal2} % frame titles
+\setbeamercolor{structure}{fg=mypal4} % bottom banner
+\setbeamercolor{normal text}{fg=mypal5}
+\usebackgroundtemplate{\includegraphics[height=\paperheight,width=\paperwidth]{fig/back_tmp.pdf}}
+
+\begin{document}
+
+\title[Risk assessment for CA lakes]{\textbf{Landscape scale risk assessment of cyanobacteria blooms in California lakes}}
+\author[Beck et al.]{Marcus W. Beck$^1$, Martha Sutula, Meredith Howard, Eric Stein}
+
+\institute[SCCWRP]{$^1$Southern California Coastal Water Research Project, Costa Mesa, CA \href{mailto:marcusb@sccwrp.org}{marcusb@sccwrp.org}, Phone: 714-755-3217}
+
+\date{May 24\textsuperscript{th}, 2018}
+
+% \titlegraphic{
+% \begin{minipage}{0.3\linewidth}
+% \includegraphics[width=\linewidth]{fig/scienceflow.png}
+% \end{minipage}
+% \hfill
+% \begin{minipage}{0.3\textwidth}
+% \includegraphics[width=\linewidth]{fig/titlefig.pdf}
+% \end{minipage}
+% }
+
+%%%%%%
+\begin{frame}[shrink]
+\vspace{0.2in}
+\titlepage
+\end{frame}
+
+\section{Background}
+
+%%%%%%
+\begin{frame}{{$\vcenter{\hbox{\includegraphics[width=0.07\paperwidth]{fig/sccwrp_logo.png}}}$\hspace{0.07in}\textbf{Bioassessment in California}}}
+
+\end{frame}
+
+%%%%%%
+\begin{frame}
+\emtxt{Acknowledgments}:\\~\\
+\begin{columns}
+\begin{column}{0.8\textwidth}
+{\footnotesize
+Research staff and employees at Southern California Coastal Water Research Project\\~\\
+Blake Schaeffer (USEPA, ORD) for CyAN data\\~\\
+Ryan Hill (USEPA, ORISE) for LakeCat data\\~\\}
+\end{column}
+\begin{column}{0.2\textwidth}
+\end{column}
+\end{columns}
+\vfill
+\emtxt{Funding sources and contact}:\\~\\
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\vfill
+\centerline{\includegraphics[width=0.6\linewidth]{fig/sccwrp_logo.png}}
+\vfill
+\end{column}
+\begin{column}{0.5\textwidth}
+\scriptsize
+\href{mailto:marcusb@sccwrp.org}{marcusb@sccwrp.org}, 7147553217\\~\\
+\includegraphics[width = 0.05\textwidth]{fig/git.png} GitHub (project): \href{https://github.com/fawda123/cali_lake}{https://github.com/fawda123/cali\_lake}\\~\\
+\includegraphics[width = 0.05\textwidth]{fig/git.png} GitHub (presentation): \href{https://github.com/fawda123/SFS_2018}{https://github.com/fawda123/SFS\_2018}\\~\\
+\includegraphics[width = 0.05\textwidth]{fig/twitter.png} Twitter: @fawda123
+\end{column}
+\end{columns}
+\vspace{0.2in}
+\end{frame}
+
+%%%%%%
+% \section{References}
+% \begin{frame}[t,shrink]{\textbf{References}}
+% \tiny
+% \setbeamertemplate{bibliography item}{}
+% \bibliographystyle{apalike_mine}
+% \bibliography{refs}
+% \end{frame}
+
+\end{document}
