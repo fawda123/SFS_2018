@@ -90,8 +90,6 @@
 % get online bib file
 
 
-% title fig
-
 
 \setbeamercolor{title}{fg=mypal5} % main title
 \setbeamercolor{frametitle}{fg=mypal4, bg=mypal2} % frame titles
@@ -108,15 +106,10 @@
 
 \date{May 24\textsuperscript{th}, 2018}
 
-% \titlegraphic{
-% \begin{minipage}{0.3\linewidth}
-% \includegraphics[width=\linewidth]{fig/scienceflow.png}
-% \end{minipage}
-% \hfill
-% \begin{minipage}{0.3\textwidth}
-% \includegraphics[width=\linewidth]{fig/titlefig.pdf}
-% \end{minipage}
-% }
+\titlegraphic{
+\centerline{\includegraphics[width=0.8\linewidth]{fig/elsinore.png}}
+\vspace{0.1in}
+}
 
 %%%%%%
 \begin{frame}[shrink]
@@ -133,8 +126,10 @@ Wadeable streams are covered statewide \\~\\
 \item Reference sites {\tiny \cite{Ode16}}
 \item Macroinvertebrate, algal integrity {\tiny \cite{Mazor16}, [Theroux et al., in prep]}
 \item Expectations of constraints {\tiny [Beck et al., in prep]}
-\item Recent proposal of biological standards
+\item Recent proposal of biological standards \\~\\
 \end{itemize}
+\vspace{0.1in}
+\centerline{\includegraphics[width=0.9\textwidth]{fig/streams.png}}
 \end{frame}
 
 %%%%%%
@@ -160,7 +155,7 @@ Limited \textit{in situ} data for California, tons of watershed data
 \begin{column}{0.5\textwidth}
 
 
-{\centering \includegraphics[width=\maxwidth]{fig/unnamed-chunk-3-1} 
+{\centering \includegraphics[width=\maxwidth]{fig/unnamed-chunk-2-1} 
 
 }
 
@@ -170,7 +165,7 @@ Limited \textit{in situ} data for California, tons of watershed data
 \begin{column}{0.5\textwidth}
 
 
-{\centering \includegraphics[width=\maxwidth]{fig/unnamed-chunk-4-1} 
+{\centering \includegraphics[width=\maxwidth]{fig/unnamed-chunk-3-1} 
 
 }
 
@@ -261,41 +256,54 @@ A four-step approach to make statewide inferences from a limited dataset:\\~\\
 %%%%%%
 \begin{frame}{{$\vcenter{\hbox{\includegraphics[width=0.07\paperwidth]{fig/sccwrp_logo.png}}}$\hspace{0.07in}\textbf{2) Link between chlorophyll and location}}}
 \centering
-\emtxt{Making data using a spatial PCA} \\~\\
+\emtxt{Predicted chlorophyll from location seems okay} \\~\\
+\includegraphics[width = \textwidth]{fig/modval.pdf}
+\end{frame}
+
+
+
+%%%%%%
+\begin{frame}{{$\vcenter{\hbox{\includegraphics[width=0.07\paperwidth]{fig/sccwrp_logo.png}}}$\hspace{0.07in}\textbf{3) Estimated risk from chla prediction}}}
+\emtxt{An additional leap: Use predicted chlorophyll from landscape model, estimate predicted probability of exceeding threshold, categorize relative risk} \\~\\
+\includegraphics[width = \textwidth]{fig/rskprd.pdf}
+\end{frame}
+
+
+
+%%%%%%
+\begin{frame}{{$\vcenter{\hbox{\includegraphics[width=0.07\paperwidth]{fig/sccwrp_logo.png}}}$\hspace{0.07in}\textbf{4) Identify landscape factors that explain risk}}}
+\emtxt{Top five most important watershed factors explaining the relative risk categories} \\~\\
+\includegraphics[width = \textwidth]{fig/rskfac.pdf}
 \end{frame}
 
 %%%%%%
-\begin{frame}{{$\vcenter{\hbox{\includegraphics[width=0.07\paperwidth]{fig/sccwrp_logo.png}}}$\hspace{0.07in}\textbf{3) Predict statewide risk from chlorophyll prediction from landscape position}}}
-
+\begin{frame}{{$\vcenter{\hbox{\includegraphics[width=0.07\paperwidth]{fig/sccwrp_logo.png}}}$\hspace{0.07in}\textbf{What did we learn?}}}
+\begin{itemize}
+\item<+->National level products can be leveraged for exploratory analysis \\~\\
+\item<+-> Chlorophyll could be used as an assessment endpoint of HAB risk \\~\\
+\item<+-> Landscape position is a potentially powerful predictor of water quality \\~\\
+\item<+-> HAB risks are relatively low statewide, but possibly a byproduct of the model \\~\\
+\end{itemize}
+\onslide<1->
+\centerline{\includegraphics[width=0.8\textwidth]{fig/habex.png}}
 \end{frame}
 
-%%%%%%
-\begin{frame}{{$\vcenter{\hbox{\includegraphics[width=0.07\paperwidth]{fig/sccwrp_logo.png}}}$\hspace{0.07in}\textbf{4) Identify statewide landscape factors that explain risk}}}
 
-\end{frame}
-%%%%%%
-\begin{frame}{{$\vcenter{\hbox{\includegraphics[width=0.07\paperwidth]{fig/sccwrp_logo.png}}}$\hspace{0.07in}\textbf{Results}}}
-
-\end{frame}
-
-%%%%%%
-\begin{frame}{{$\vcenter{\hbox{\includegraphics[width=0.07\paperwidth]{fig/sccwrp_logo.png}}}$\hspace{0.07in}\textbf{Results}}}
-
-\end{frame}
-
-%%%%%%
-\begin{frame}{{$\vcenter{\hbox{\includegraphics[width=0.07\paperwidth]{fig/sccwrp_logo.png}}}$\hspace{0.07in}\textbf{Results}}}
-
-\end{frame}
 
 %%%%%%
 \begin{frame}{{$\vcenter{\hbox{\includegraphics[width=0.07\paperwidth]{fig/sccwrp_logo.png}}}$\hspace{0.07in}\textbf{Issues and future work}}}
-Assumptions and limitations
-\end{frame}
-
-%%%%%%
-\begin{frame}{{$\vcenter{\hbox{\includegraphics[width=0.07\paperwidth]{fig/sccwrp_logo.png}}}$\hspace{0.07in}\textbf{Issues and future work}}}
-Alternative data acquisition
+This is a very simplistic model wrought with assumptions, good for exploration but not on a case basis \\~\\
+Alternative data acquisition can be explored:
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\centering
+\centerline{\includegraphics[width=\textwidth]{fig/cyan.png}}\\~\\
+{\tiny \url{https://www.epa.gov/water-research/cyanobacteria-assessment-network-cyan}}
+\end{column}
+\begin{column}{0.5\textwidth}
+\centerline{\includegraphics[width=0.8\textwidth]{fig/cyanca.pdf}}
+\end{column}
+\end{columns}
 \end{frame}
 
 %%%%%%
@@ -306,7 +314,8 @@ Alternative data acquisition
 {\footnotesize
 Research staff and employees at Southern California Coastal Water Research Project\\~\\
 Blake Schaeffer (USEPA, ORD) for CyAN data\\~\\
-Ryan Hill (USEPA, ORISE) for LakeCat data\\~\\}
+Ryan Hill (USEPA, ORISE) for LakeCat data\\~\\
+Photo credits: Meredith Howard, Susan Fricke, Carey Nagoda, Raphael Mazor, Chad Loflen\\~\\}
 \end{column}
 \begin{column}{0.2\textwidth}
 \end{column}
@@ -336,8 +345,8 @@ Ryan Hill (USEPA, ORISE) for LakeCat data\\~\\}
 \tiny
 \setbeamertemplate{bibliography item}{}
 \bibliographystyle{apalike_mine}
-\bibliography{refs}
-% \bibliography{refsnew}
+% \bibliography{refs}
+\bibliography{refsnew}
 \end{frame}
 
 \end{document}

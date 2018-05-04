@@ -1,4 +1,3 @@
- \newcommand{\noop}[1]{}
 \begin{thebibliography}{}
 
 \bibitem[Hill et~al., 2018]{Hill18}
@@ -28,13 +27,13 @@ Ode PR, Rehn AC, Mazor RD, Schiff KC, Stein ED, May JT, Brown LR, Herbst DB,
   assessments in environmentally complex regions.
 \newblock Freshwater Science, 35(1):237--248.
 
-\bibitem[{USEPA (US Environmental Protection Agency)}, 2009]{USEPA09}
-{USEPA (US Environmental Protection Agency)}. 2009.
+\bibitem[{USEPA}, 2009]{USEPA09}
+{USEPA}. 2009.
 \newblock {N}ational {L}akes {A}ssessment 2007: a collaborative survey.
 \newblock Technical Report EPA-841-R-09-001, Washington, DC.
 
-\bibitem[{USEPA (US Environmental Protection Agency)}, 2017]{USEPA17}
-{USEPA (US Environmental Protection Agency)}. 2017.
+\bibitem[{USEPA}, 2017]{USEPA17}
+{USEPA}. 2017.
 \newblock {N}ational {L}akes {A}ssessment 2012: technical report.
 \newblock Technical Report EPA-841-R-16-114, Washington, DC.
 

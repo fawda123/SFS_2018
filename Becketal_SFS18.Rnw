@@ -85,6 +85,8 @@ data(nlaca)
 data(envdat)
 data(mods)
 data(vecs)
+data(rndmodimp)
+data(merisdat_ca)
 
 lkct <- lkct_ca %>% 
   st_centroid %>% 
@@ -99,16 +101,12 @@ lkct <- lkct_ca %>%
 
 % get online bib file
 <<echo = FALSE, cache = FALSE>>=
-refs <- httr::GET('https://raw.githubusercontent.com/fawda123/refs/master/refs.bib')
-refs <- rawToChar(refs$content)
-writeLines(refs, con = file('refs.bib'))
-Jabbrev::bbl_ext('Becketal_SFS18.bbl', 'refs.bib', 'refsnew.bib')
+# refs <- httr::GET('https://raw.githubusercontent.com/fawda123/refs/master/refs.bib')
+# refs <- rawToChar(refs$content)
+# writeLines(refs, con = file('refs.bib'))
+# Jabbrev::bbl_ext('Becketal_SFS18.bbl', 'refs.bib', 'refsnew.bib')
 @
 
-% title fig
-<<results = 'hide', cache = T>>=
-
-@
 
 \setbeamercolor{title}{fg=mypal5} % main title
 \setbeamercolor{frametitle}{fg=mypal4, bg=mypal2} % frame titles
@@ -125,15 +123,10 @@ Jabbrev::bbl_ext('Becketal_SFS18.bbl', 'refs.bib', 'refsnew.bib')
 
 \date{May 24\textsuperscript{th}, 2018}
 
-% \titlegraphic{
-% \begin{minipage}{0.3\linewidth}
-% \includegraphics[width=\linewidth]{fig/scienceflow.png}
-% \end{minipage}
-% \hfill
-% \begin{minipage}{0.3\textwidth}
-% \includegraphics[width=\linewidth]{fig/titlefig.pdf}
-% \end{minipage}
-% }
+\titlegraphic{
+\centerline{\includegraphics[width=0.8\linewidth]{fig/elsinore.png}}
+\vspace{0.1in}
+}
 
 %%%%%%
 \begin{frame}[shrink]
@@ -150,8 +143,10 @@ Wadeable streams are covered statewide \\~\\
 \item Reference sites {\tiny \cite{Ode16}}
 \item Macroinvertebrate, algal integrity {\tiny \cite{Mazor16}, [Theroux et al., in prep]}
 \item Expectations of constraints {\tiny [Beck et al., in prep]}
-\item Recent proposal of biological standards
+\item Recent proposal of biological standards \\~\\
 \end{itemize}
+\vspace{0.1in}
+\centerline{\includegraphics[width=0.9\textwidth]{fig/streams.png}}
 \end{frame}
 
 %%%%%%
@@ -425,7 +420,7 @@ dev.off()
 \includegraphics[width = \textwidth]{fig/pcnm.pdf}
 \end{frame}
 
-<<eval = F>>=
+<<modval, include = F, message = F, warning = F>>=
 # get formula for best model
 bstfrm <- get.models(mods, 1)[[1]] %>% 
   coefficients %>% 
@@ -443,8 +438,8 @@ flds <- createFolds(1:nrow(tomod), k = 5) %>%
     valdat <- tomod[x, ]
     mod <- glm(bstfrm, family = gaussian(), data = trndat, na.action = na.pass)
 
-    trnprd <- data.frame(mod = 'trn', prd = predict(mod, type = 'response'), obs = log(trndat$chla), stringsAsFactors = F)
-    valprd <- data.frame(mod = 'val', prd = predict(mod, newdata = valdat, type = 'response'), obs = log(valdat$chla), stringsAsFactors = F)
+    trnprd <- data.frame(mod = 'Training', prd = predict(mod, type = 'response'), obs = log(trndat$chla), stringsAsFactors = F)
+    valprd <- data.frame(mod = 'Validation', prd = predict(mod, newdata = valdat, type = 'response'), obs = log(valdat$chla), stringsAsFactors = F)
 
     out <- rbind(trnprd, valprd)
 
@@ -455,51 +450,205 @@ flds <- createFolds(1:nrow(tomod), k = 5) %>%
   unnest
 
 # scatter plot of predicted/observed for five folds, training/validation data
-ggplot(flds, aes(x = prd, y = obs)) +
+p <- ggplot(flds, aes(x = prd, y = obs)) +
   geom_abline(intercept = 0, slope = 1) +
   geom_point() +
   facet_grid(mod ~ name) +
-  stat_smooth(method = 'lm')
+  stat_smooth(method = 'lm') +
+  scale_x_continuous('Predicted Chla') + 
+  scale_y_continuous('Observed Chla') +
+  theme_bw(base_size = 14) +
+  theme(
+    panel.background = element_rect(fill = 'transparent', colour = NA),
+    plot.background = element_rect(fill = 'transparent', colour = NA), 
+    strip.background = element_blank()
+  )
+pdf("fig/modval.pdf", height = 5, width = 9, family = 'serif', bg = 'transparent')
+p
+dev.off()
 @
 
 %%%%%%
 \begin{frame}{{$\vcenter{\hbox{\includegraphics[width=0.07\paperwidth]{fig/sccwrp_logo.png}}}$\hspace{0.07in}\textbf{2) Link between chlorophyll and location}}}
 \centering
-\emtxt{Making data using a spatial PCA} \\~\\
+\emtxt{Predicted chlorophyll from location seems okay} \\~\\
+\includegraphics[width = \textwidth]{fig/modval.pdf}
+\end{frame}
+
+<<rskprd, include = F, message = F, warning = F>>=
+# chlorophyll predictions from PCNM model
+bstmod <- lm(bstfrm, data = tomod)
+prd <- predict(bstmod, newdata = vecs[, axs])
+
+# likelihood predictions from binom mod
+likprd <- predict(modmcy, newdata = data.frame(chla = 10^prd), type = 'response')
+
+toplo <- all_lk %>% 
+  mutate(
+    prd = prd,
+    likprd = likprd,
+    likcat = cut(likprd, breaks = c(-Inf, quantile(likprd, c(0.33, 0.66)), Inf), labels = c('lo', 'md', 'hi'))
+    ) %>% 
+  filter(!nlavec)
+
+pbase <- ggplot() + 
+  geom_sf(data = state, fill = NA, colour = 'black') +
+  theme_void(base_size = 16) + 
+  theme(
+    panel.grid.major = element_line(colour = 'transparent'), 
+    legend.position = 'top', 
+    panel.background = element_rect(fill = 'transparent', colour = NA),
+    plot.background = element_rect(fill = 'transparent', colour = NA)
+  ) 
+
+p1 <- pbase + 
+  geom_point(data = nlaca, aes(x = lon, y = lat, fill = log10(chla)), size = 4, alpha = 0.9, pch = 21, colour = 'black') +
+  scale_fill_distiller(palette = 'Spectral')
+
+p2 <- pbase + 
+  geom_point(data = toplo, aes(x = lon, y = lat, fill = prd), size = 2, alpha = 0.6, pch = 21, colour = 'black') +
+  scale_fill_distiller('Predicted log(Chla)', palette = 'Spectral') 
+
+p3 <- pbase + 
+  geom_point(data = toplo, aes(x = lon, y = lat, fill = likprd), size = 2, alpha = 0.6, pch = 21, colour = 'black') +
+  scale_fill_distiller('Predicted prob. of\n exceeding criteria', palette = 'Spectral') 
+
+p4 <- pbase + 
+  geom_point(data = toplo, aes(x = lon, y = lat, fill = likcat), size = 2, alpha = 0.6, pch = 21, colour = 'black') +
+  scale_fill_manual('Relative\nrisk', values = RColorBrewer::brewer.pal(9, 'Set1')[c(2, 3, 1)])
+
+pdf("fig/rskprd.pdf", height = 5, width = 10.5, family = 'serif', bg = 'transparent')
+grid.arrange(p2, p3, p4, ncol = 3)
+dev.off()
+@
+
+%%%%%%
+\begin{frame}{{$\vcenter{\hbox{\includegraphics[width=0.07\paperwidth]{fig/sccwrp_logo.png}}}$\hspace{0.07in}\textbf{3) Estimated risk from chla prediction}}}
+\emtxt{An additional leap: Use predicted chlorophyll from landscape model, estimate predicted probability of exceeding threshold, categorize relative risk} \\~\\
+\includegraphics[width = \textwidth]{fig/rskprd.pdf}
+\end{frame}
+
+<<rskfac, include = F, message = F, warning = F>>=
+
+colgrp <- data.frame(
+  grps = c('lo', 'md', 'hi'),
+  cols = RColorBrewer::brewer.pal(9, 'Set1')[c(2, 3, 1)], 
+  stringsAsFactors = F
+)
+
+plos <- rndmodimp %>% 
+  as.data.frame %>%
+  rownames_to_column('var') %>% 
+  dplyr::select(-MeanDecreaseAccuracy, -MeanDecreaseGini) %>% 
+  gather('grp', 'importance', -var) %>% 
+  group_by(grp) %>% 
+  nest %>% 
+  mutate(
+    implo = pmap(list(as.character(grp), data), function(grp, data){
+
+      colfl <- colgrp %>% 
+        filter(grps %in% grp) %>% 
+        pull(cols)
+      
+      toplo <- data %>% 
+        arrange(-importance) %>% 
+        .[1:5, ] %>% 
+        mutate(var = factor(var, levels = var))
+      
+      p <- ggplot(toplo, aes(x = var, y = importance)) + 
+        geom_segment(aes(xend = var, yend = 0)) +
+        geom_point(fill = colfl, pch = 21, size = 3) + 
+        theme_bw() + 
+        theme(
+          axis.title.x = element_blank(), 
+          axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1), 
+          axis.title.y = element_blank(),
+          panel.grid.major = element_line(colour = 'transparent'), 
+          panel.background = element_rect(fill = 'transparent', colour = NA),
+          plot.background = element_rect(fill = 'transparent', colour = NA)
+        ) + 
+        ggtitle(grp) + 
+        scale_y_continuous(limits = c(0, 0.06))
+    
+      return(p)
+      
+    })
+  )
+
+p1 <- plos$implo[[1]]
+p2 <- plos$implo[[2]]
+p3 <- plos$implo[[3]]
+
+
+# fix heights
+pA <- ggplot_gtable(ggplot_build(p1))
+pB <- ggplot_gtable(ggplot_build(p2))
+pC <- ggplot_gtable(ggplot_build(p3))
+
+maxheight <- grid::unit.pmax(pA$heights, pB$heights, pC$heights)
+
+pA$heights <- maxheight
+pB$heights <- maxheight
+pC$heights <- maxheight
+
+pdf("fig/rskfac.pdf", height = 4, width = 8.5, family = 'serif', bg = 'transparent')
+grid.arrange(pA, pB, pC, ncol = 3, left = grid::textGrob('Importance', rot = 90))
+dev.off()
+@
+
+%%%%%%
+\begin{frame}{{$\vcenter{\hbox{\includegraphics[width=0.07\paperwidth]{fig/sccwrp_logo.png}}}$\hspace{0.07in}\textbf{4) Identify landscape factors that explain risk}}}
+\emtxt{Top five most important watershed factors explaining the relative risk categories} \\~\\
+\includegraphics[width = \textwidth]{fig/rskfac.pdf}
 \end{frame}
 
 %%%%%%
-\begin{frame}{{$\vcenter{\hbox{\includegraphics[width=0.07\paperwidth]{fig/sccwrp_logo.png}}}$\hspace{0.07in}\textbf{3) Predict statewide risk from chlorophyll prediction from landscape position}}}
-
+\begin{frame}{{$\vcenter{\hbox{\includegraphics[width=0.07\paperwidth]{fig/sccwrp_logo.png}}}$\hspace{0.07in}\textbf{What did we learn?}}}
+\begin{itemize}
+\item<+->National level products can be leveraged for exploratory analysis \\~\\
+\item<+-> Chlorophyll could be used as an assessment endpoint of HAB risk \\~\\
+\item<+-> Landscape position is a potentially powerful predictor of water quality \\~\\
+\item<+-> HAB risks are relatively low statewide, but possibly a byproduct of the model \\~\\
+\end{itemize}
+\onslide<1->
+\centerline{\includegraphics[width=0.8\textwidth]{fig/habex.png}}
 \end{frame}
 
-%%%%%%
-\begin{frame}{{$\vcenter{\hbox{\includegraphics[width=0.07\paperwidth]{fig/sccwrp_logo.png}}}$\hspace{0.07in}\textbf{4) Identify statewide landscape factors that explain risk}}}
+<<cyanca, include = F, message = F, warning = F>>=
 
-\end{frame}
-%%%%%%
-\begin{frame}{{$\vcenter{\hbox{\includegraphics[width=0.07\paperwidth]{fig/sccwrp_logo.png}}}$\hspace{0.07in}\textbf{Results}}}
+# state poly
+state <- st_as_sf(map('county', region = 'california', plot = F, fill = T), crs = prj) %>% 
+  st_buffer(0)
 
-\end{frame}
+p <- ggplot() + 
+  geom_sf(data = state, fill = NA) + 
+  geom_sf(data = merisdat_ca, fill = 'blue', colour = 'blue') +
+  theme_void() + 
+  theme(
+    panel.grid.major = element_line(colour = 'transparent'), 
+    legend.position = 'top', 
+    plot.background = element_rect(fill = 'transparent', colour = NA)
+  )
 
-%%%%%%
-\begin{frame}{{$\vcenter{\hbox{\includegraphics[width=0.07\paperwidth]{fig/sccwrp_logo.png}}}$\hspace{0.07in}\textbf{Results}}}
-
-\end{frame}
-
-%%%%%%
-\begin{frame}{{$\vcenter{\hbox{\includegraphics[width=0.07\paperwidth]{fig/sccwrp_logo.png}}}$\hspace{0.07in}\textbf{Results}}}
-
-\end{frame}
+pdf("fig/cyanca.pdf", height = 5, width = 4, family = 'serif', bg = 'transparent')
+p
+dev.off()
+@
 
 %%%%%%
 \begin{frame}{{$\vcenter{\hbox{\includegraphics[width=0.07\paperwidth]{fig/sccwrp_logo.png}}}$\hspace{0.07in}\textbf{Issues and future work}}}
-Assumptions and limitations
-\end{frame}
-
-%%%%%%
-\begin{frame}{{$\vcenter{\hbox{\includegraphics[width=0.07\paperwidth]{fig/sccwrp_logo.png}}}$\hspace{0.07in}\textbf{Issues and future work}}}
-Alternative data acquisition
+This is a very simplistic model wrought with assumptions, good for exploration but not on a case basis \\~\\
+Alternative data acquisition can be explored:
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\centering
+\centerline{\includegraphics[width=\textwidth]{fig/cyan.png}}\\~\\
+{\tiny \url{https://www.epa.gov/water-research/cyanobacteria-assessment-network-cyan}}
+\end{column}
+\begin{column}{0.5\textwidth}
+\centerline{\includegraphics[width=0.8\textwidth]{fig/cyanca.pdf}}
+\end{column}
+\end{columns}
 \end{frame}
 
 %%%%%%
@@ -510,7 +659,8 @@ Alternative data acquisition
 {\footnotesize
 Research staff and employees at Southern California Coastal Water Research Project\\~\\
 Blake Schaeffer (USEPA, ORD) for CyAN data\\~\\
-Ryan Hill (USEPA, ORISE) for LakeCat data\\~\\}
+Ryan Hill (USEPA, ORISE) for LakeCat data\\~\\
+Photo credits: Meredith Howard, Susan Fricke, Carey Nagoda, Raphael Mazor, Chad Loflen\\~\\}
 \end{column}
 \begin{column}{0.2\textwidth}
 \end{column}
@@ -540,8 +690,8 @@ Ryan Hill (USEPA, ORISE) for LakeCat data\\~\\}
 \tiny
 \setbeamertemplate{bibliography item}{}
 \bibliographystyle{apalike_mine}
-\bibliography{refs}
-% \bibliography{refsnew}
+% \bibliography{refs}
+\bibliography{refsnew}
 \end{frame}
 
 \end{document}
