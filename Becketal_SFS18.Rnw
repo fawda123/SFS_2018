@@ -537,13 +537,34 @@ colgrp <- data.frame(
   stringsAsFactors = F
 )
 
-plos <- rndmodimp %>% 
+# nest importance data by group
+rndnest <- rndmodimp %>% 
   as.data.frame %>%
   rownames_to_column('var') %>% 
   dplyr::select(-MeanDecreaseAccuracy, -MeanDecreaseGini) %>% 
   gather('grp', 'importance', -var) %>% 
   group_by(grp) %>% 
-  nest %>% 
+  nest
+
+# get top five important variables by group
+# rndlab <- rndnest$data %>% 
+#   purrr::map(function(x){
+#   
+#     x %>%
+#       arrange(-importance) %>%
+#       .[1:5, 'var', drop = T]
+#     
+#   }) %>% 
+#   unlist %>% 
+#   unique %>%
+#   sort
+rndlab <- tibble(
+  var = c('BFIWs', 'InorgNWetDep_2008Ws', 'Na2OWs', 'NH4_2008Ws', 'NO3_2008Ws', 'PopDen2010Ws', 'RunoffWs', 'Tmean8110Ws'), 
+  pllab = c('Wshed base flow', 'N wet dep', 'Na2O soil geo', 'NH4 wet dep', 'NO3 wet dep', 'Pop density', 'Wshed runoff', '30 yr mean temp')
+)
+
+# create importance plots
+plos <- rndnest %>% 
   mutate(
     implo = pmap(list(as.character(grp), data), function(grp, data){
 
@@ -554,6 +575,9 @@ plos <- rndmodimp %>%
       toplo <- data %>% 
         arrange(-importance) %>% 
         .[1:5, ] %>% 
+        left_join(rndlab, by = 'var') %>% 
+        select(-var) %>%
+        rename(var = pllab) %>% 
         mutate(var = factor(var, levels = var))
       
       p <- ggplot(toplo, aes(x = var, y = importance)) + 
@@ -598,8 +622,8 @@ dev.off()
 @
 
 %%%%%%
-\begin{frame}{{$\vcenter{\hbox{\includegraphics[width=0.07\paperwidth]{fig/sccwrp_logo.png}}}$\hspace{0.07in}\textbf{4) Identify landscape factors that explain risk}}}
-\emtxt{Top five most important watershed factors explaining the relative risk categories} \\~\\
+\begin{frame}{{$\vcenter{\hbox{\includegraphics[width=0.07\paperwidth]{fig/sccwrp_logo.png}}}$\hspace{0.07in}\textbf{4) Identify landscape factors related to risk}}}
+\emtxt{Top five most important watershed factors linked to risk categories} \\~\\
 \includegraphics[width = \textwidth]{fig/rskfac.pdf}
 \end{frame}
 
