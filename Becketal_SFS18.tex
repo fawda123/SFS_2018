@@ -169,7 +169,7 @@ Limited \textit{in situ} data for California, tons of watershed data
 %%%%%%
 \begin{frame}{{$\vcenter{\hbox{\includegraphics[width=0.07\paperwidth]{fig/sccwrp_logo.png}}}$\hspace{0.07in}\textbf{Develop a screening tool for HAB risk}}}
 \onslide<1->
-Despite the problem, we have no formal bioassessment methods for lakes \\~\\
+Despite the problem, we have no formal bioassessment program for lakes \\~\\
 \begin{itemize}
 \item<+-> Current thresholds and reporting are voluntary
 \item<+-> No recommendations for regional water boards on listing/delisting or where to monitor
@@ -186,9 +186,9 @@ Despite the problem, we have no formal bioassessment methods for lakes \\~\\
 \onslide<1->
 A four-step approach to identify risk from a limited dataset:\\~\\
 \begin{enumerate}
-\item<+-> Develop link between chlorophyll and microcystin
+\item<+-> Develop link between chlorophyll and microcystin from \textit{in situ} data
 \item<+-> Develop link between chlorophyll and location using spatial model
-\item<+-> Predict statewide risk from chlorophyll prediction from landscape position
+\item<+-> Estimate microcystin risks from statewide chlorophyll predictions
 \item<+-> Identify landscape factors that are related to risk \\~\\
 \end{enumerate}
 \onslide<+->
@@ -200,24 +200,40 @@ A four-step approach to identify risk from a limited dataset:\\~\\
 %%%%%%
 \begin{frame}{{$\vcenter{\hbox{\includegraphics[width=0.07\paperwidth]{fig/sccwrp_logo.png}}}$\hspace{0.07in}\textbf{Modelling approach}}}
 \begin{overprint}
-\only<2>{
+\only<1>{
 \FrameText{\huge{\textbf{1}}}
+\begin{textblock*}{\paperwidth}(175pt,50pt)
+\raggedright 
+\large{\textbf{Link between chlorophyll\\ and microcystin}}
+\end{textblock*}
+}
+\only<2>{
+\FrameText{\huge{\textbf{2}}}
+\begin{textblock*}{\paperwidth}(260pt,50pt)
+\raggedright 
+\large{\textbf{Link between \\ chlorophyll and\\ location}}
+\end{textblock*}
 }
 \only<3>{
-\FrameText{\huge{\textbf{2}}}
+\FrameText{\huge{\textbf{3}}}
+\begin{textblock*}{\paperwidth}(50pt,50pt)
+\raggedright 
+\large{\textbf{Estimated risk using\\ chlorophyll prediction}}
+\end{textblock*}
 }
 \only<4>{
-\FrameText{\huge{\textbf{3}}}
-}
-\only<5>{
 \FrameText{\huge{\textbf{4}}}
+\begin{textblock*}{\paperwidth}(50pt,50pt)
+\raggedright 
+\large{\textbf{Identify landscape factors\\ related to risk}}
+\end{textblock*}
 }
 \centering
-\includegraphics<1>[width = 0.95\textwidth]{fig/schem.png}
-\includegraphics<2>[width = 0.95\textwidth]{fig/schem1.png}
-\includegraphics<3>[width = 0.95\textwidth]{fig/schem2.png}
-\includegraphics<4>[width = 0.95\textwidth]{fig/schem3.png}
-\includegraphics<5>[width = 0.95\textwidth]{fig/schem4.png}
+\includegraphics<1>[width = 0.95\textwidth]{fig/schem1.png}
+\includegraphics<2>[width = 0.95\textwidth]{fig/schem2.png}
+\includegraphics<3>[width = 0.95\textwidth]{fig/schem3.png}
+\includegraphics<4>[width = 0.95\textwidth]{fig/schem4.png}
+\includegraphics<5>[width = 0.95\textwidth]{fig/schem.png}
 \end{overprint}
 \end{frame}
 
@@ -248,7 +264,7 @@ A four-step approach to identify risk from a limited dataset:\\~\\
 %%%%%%
 \begin{frame}{{$\vcenter{\hbox{\includegraphics[width=0.07\paperwidth]{fig/sccwrp_logo.png}}}$\hspace{0.07in}\textbf{2) Link between chlorophyll and location}}}
 \centering
-\emtxt{Using a spatial model to predict chlorophyll from location} \\~\\
+\emtxt{Using a spatial model to predict chlorophyll from lat/lon} \\~\\
 \includegraphics[width = \textwidth]{fig/pcnm.pdf}
 \end{frame}
 
@@ -265,7 +281,7 @@ A four-step approach to identify risk from a limited dataset:\\~\\
 
 %%%%%%
 \begin{frame}{{$\vcenter{\hbox{\includegraphics[width=0.07\paperwidth]{fig/sccwrp_logo.png}}}$\hspace{0.07in}\textbf{3) Estimated risk from chla prediction}}}
-\emtxt{An additional leap: Use predicted chlorophyll from landscape model, estimate predicted probability of exceeding threshold, categorize relative risk} \\~\\
+\emtxt{Use predicted chlorophyll to estimate probability of exceeding threshold, categorize relative risk} \\~\\
 \includegraphics[width = \textwidth]{fig/rskprd.pdf}
 \end{frame}
 
