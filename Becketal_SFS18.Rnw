@@ -137,16 +137,34 @@ lkct <- lkct_ca %>%
 \section{Background}
 
 %%%%%%
-\begin{frame}{{$\vcenter{\hbox{\includegraphics[width=0.07\paperwidth]{fig/sccwrp_logo.png}}}$\hspace{0.07in}\textbf{California lakes have a HAB problem}}}
+\begin{frame}{{$\vcenter{\hbox{\includegraphics[width=0.07\paperwidth]{fig/sccwrp_logo.png}}}$\hspace{0.07in}\textbf{Unprecedented freshwater HAB events recently in California}}}
 \begin{columns}
-\begin{column}{0.4\textwidth}
+\begin{column}{0.65\textwidth}
 \begin{itemize}
-\item 2017 targeted sampling on Labor Day revealed a problem \\~\\
-\item Over half of sampled lakes exceeded a proposed recreational criteria
+\onslide<1->
+\item New record high toxin concentrations
+\begin{itemize}
+\item Multiples toxins detected simultaneously \\~\\
+\end{itemize}
+\onslide<2->
+\item Many impacts and events
+\begin{itemize}
+\item Record number of lakes closed for recreation
+\item Annual dog deaths attributed to cyanotoxins
+\item Wildlife mortality events \\~\\
+\end{itemize}
+\onslide<3->
+\item New situations and HAB organisms
+\begin{itemize}
+\item Golden algae, \textit{Pyrmnesium parvum}
+\item Ubiquitous and year round toxins
+\item Cyanotoxins detected in marine shellfish and marine outflows
+\end{itemize}
 \end{itemize}
 \end{column}
-\begin{column}{0.6\textwidth}
-\centerline{\includegraphics[width=\textwidth]{fig/swamp_holiday2.png}}
+\begin{column}{0.35\textwidth}
+\onslide<1->
+\centerline{\includegraphics[width=0.85\textwidth]{fig/habexfrnt.png}}
 \end{column}
 \end{columns}
 \end{frame}
@@ -178,18 +196,23 @@ points(lkct$lon, lkct$lat, col = scales::alpha('blue', 0.6), pch = 16)
 \end{frame}
 
 %%%%%%
-\begin{frame}{{$\vcenter{\hbox{\includegraphics[width=0.07\paperwidth]{fig/sccwrp_logo.png}}}$\hspace{0.07in}\textbf{Develop a screening tool for HAB risk}}}
+\begin{frame}{{$\vcenter{\hbox{\includegraphics[width=0.07\paperwidth]{fig/sccwrp_logo.png}}}$\hspace{0.07in}\textbf{We need a screening tool to assess HAB risk}}}
 \onslide<1->
-Despite the problem, we have no formal bioassessment program for lakes \\~\\
 \begin{itemize}
-\item<+-> Current thresholds and reporting are voluntary
-\item<+-> No recommendations for regional water boards on listing/delisting or where to monitor
-\item<+-> Data limitations make it difficult to identify spatial/temporal trends\\~\\
+\item<+-> Allows for prioritization of waterbody assessment for HABs \\~\\
+\item<+-> Formal regulation of cyanotoxins imminent
+\begin{itemize}
+\item EPA is planning to release Recreational Water Quality Criteria and Swimming Advisories (summer 2018)
+\item CA has established voluntary health thresholds \\~\\
+\end{itemize}
+\item<+-> Cyanotoxins included in CA biostimulatory regulation
 \end{itemize}
 \onslide<+->
 \begin{center}
-\emtxt{Goal: develop screening tool to evaluate the relative risk of lakes exceeding a eutrophication endpoint related to bloom occurrence}
+\vfill
+\emtxt{Goal: develop screening tool to evaluate the relative risk of HABs in order to prioritize lakes assessment}
 \end{center}
+\vfill
 \end{frame}
 
 %%%%%%
